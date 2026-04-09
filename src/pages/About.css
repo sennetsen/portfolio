@@ -1,0 +1,81 @@
+.about {
+  background-color: var(--color-white);
+  padding: 60px 24px;
+}
+
+.about-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.about-headshot {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.about-headshot img {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.headshot-placeholder {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
+  background-color: var(--color-bg);
+  border: 2px dashed var(--color-border);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gray);
+  font-size: 0.85rem;
+}
+
+.about-greeting {
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 32px;
+}
+
+.about-name {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.about-bio p {
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+.about-closing {
+  text-align: center;
+  font-weight: 600;
+}
+
+.about-cta {
+  text-align: center;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+@media (max-width: 500px) {
+  .about-greeting {
+    font-size: 1.4rem;
+  }
+
+  .about-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+}

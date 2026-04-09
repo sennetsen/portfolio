@@ -1,0 +1,128 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-top {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  padding: 12px 0;
+}
+
+.navbar-top-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.navbar-brand:hover {
+  color: var(--color-white);
+}
+
+.navbar-name {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.navbar-terminal-icon {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-social-icon {
+  color: var(--color-white);
+  font-size: 1.2rem;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-social-icon:hover {
+  opacity: 1;
+  color: var(--color-white);
+}
+
+.navbar-contact-btn {
+  padding: 8px 20px;
+  font-size: 0.8rem;
+  margin-left: 8px;
+}
+
+.navbar-nav {
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.navbar-nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  gap: 4px;
+}
+
+.nav-tab {
+  padding: 12px 24px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: all 0.2s;
+  border-radius: 4px 4px 0 0;
+}
+
+.nav-tab:hover {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.nav-tab.active {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+@media (max-width: 768px) {
+  .navbar-top-inner {
+    padding: 0 16px;
+  }
+
+  .navbar-nav-inner {
+    padding: 0 16px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav-tab {
+    padding: 10px 16px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  .navbar-name {
+    font-size: 0.9rem;
+  }
+}
