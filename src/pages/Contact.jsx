@@ -5,12 +5,12 @@ import './Contact.css'
 const contactInfo = {
   name: 'Sennet Senadheera',
   title: 'Computer Science Major | Aspiring Software Engineer',
-  email: 'your.email@example.com',
+  email: 'sennetsenadheera@gmail.com',
   phone: '(123) 456-7890',
-  github: 'github.com/yourusername',
-  githubUrl: 'https://github.com/yourusername',
-  linkedin: 'linkedin.com/in/yourusername',
-  linkedinUrl: 'https://linkedin.com/in/yourusername',
+  github: 'github.com/sennetsen',
+  githubUrl: 'https://github.com/sennetsen',
+  linkedin: 'linkedin.com/in/sennet',
+  linkedinUrl: 'https://linkedin.com/in/sennet',
 }
 
 export default function Contact() {
@@ -33,7 +33,7 @@ export default function Contact() {
           <div className="contact-details">
             <a href={`mailto:${contactInfo.email}`} className="contact-item">
               <FiMail className="contact-icon" />
-              <span>{contactInfo.email}</span>
+              <span>Click to email</span>
             </a>
             <a href={`tel:${contactInfo.phone}`} className="contact-item">
               <FiPhone className="contact-icon" />

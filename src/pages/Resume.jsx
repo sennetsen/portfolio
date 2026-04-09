@@ -2,7 +2,7 @@ import SectionTitle from '../components/SectionTitle'
 import './Resume.css'
 
 export default function Resume() {
-  const hasResume = false
+  const hasResume = true
 
   return (
     <div className="resume">
@@ -11,7 +11,7 @@ export default function Resume() {
 
         <div className="resume-embed">
           {hasResume ? (
-            <iframe src="/resume.pdf" title="Resume" />
+            <iframe src="/Sennet_Senadheera_Resume.pdf" title="Resume" />
           ) : (
             <div className="resume-placeholder">
               <p>Embedded PDF Viewer</p>
@@ -24,7 +24,7 @@ export default function Resume() {
         </div>
 
         <div className="resume-cta">
-          <a href="/resume.pdf" download className="btn btn-primary">
+          <a href="/Sennet_Senadheera_Resume.pdf" download className="btn btn-primary">
             Download Resume
           </a>
         </div>
