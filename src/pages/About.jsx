@@ -9,10 +9,7 @@ export default function About() {
         <SectionTitle>About Me</SectionTitle>
 
         <div className="about-headshot">
-          {/* Replace with: <img src="/headshot.jpg" alt="Sennet Senadheera" /> */}
-          <div className="headshot-placeholder">
-            <span>Your Photo</span>
-          </div>
+          <img src="/headshot_bio_pic.jpeg" alt="Sennet Senadheera" />
         </div>
 
         <h1 className="about-greeting">

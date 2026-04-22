@@ -21,10 +21,7 @@ export default function Contact() {
 
         <div className="contact-card">
           <div className="contact-headshot">
-            {/* Replace with: <img src="/headshot.jpg" alt="Sennet Senadheera" /> */}
-            <div className="contact-headshot-placeholder">
-              <span>Your Photo</span>
-            </div>
+            <img src="/headshot_bio_pic.jpeg" alt="Sennet Senadheera" />
           </div>
 
           <h2 className="contact-name">{contactInfo.name}</h2>
