@@ -18,24 +18,30 @@ export default function About() {
 
         <div className="about-bio">
           <p>
-            I am a passionate Computer Science major with a strong interest in
-            software development, data structures, and algorithms. Currently
-            pursuing my degree at Cornell University, I am constantly seeking
-            opportunities to expand my knowledge and apply my skills to
-            real-world problems.
+            I am a senior at Cornell University in the College of Engineering,
+            majoring in Computer Science with minors in Operations Research and
+            Dyson Business. My focus is on building software systems and machine
+            learning pipelines that solve real-world problems, with experience
+            spanning full-stack development, distributed systems, and AI/ML.
           </p>
           <p>
-            My coursework has provided me with a strong foundation in
-            programming languages such as Python, Java, and C++, as well as a
-            deep understanding of object-oriented design principles and database
-            management. I enjoy tackling complex challenges and am always eager
-            to learn new technologies and methodologies.
+            Most recently, I worked as a Software Engineer Intern at Capital
+            One in New York, where I engineered an end-to-end Kubernetes
+            pipeline for a deep learning risk model and reduced execution cost
+            by 25% through Dask parallel compute optimizations. I am also the
+            co-founder of Prysm Creative Inc., a startup launched out of Life
+            Changing Labs, where we have shipped two products: Prysm, a creator
+            economy platform, and Tambr, an iOS app that converts PDFs and
+            EPUBs into AI-narrated audiobooks.
           </p>
           <p>
-            Outside of academics, I am involved in entrepreneurial ventures and
-            collaborative projects that push the boundaries of innovation. I
-            believe in continuous learning and collaboration to achieve
-            innovative solutions.
+            I have technical experience in Python, Java, OCaml,
+            TypeScript/JavaScript, SQL, and C, as well as frameworks like
+            React, Next.js, Django, PyTorch, and Swift/SwiftUI. Outside of
+            internships and entrepreneurial work, I serve as Treasurer and
+            Product Manager for Cornell University Engineers for a Sustainable
+            World, where I led development of a campus food waste tracking app
+            and manage corporate sponsorships for a 75+ member team.
           </p>
           <p className="about-closing">
             Feel free to explore my projects and connect with me!

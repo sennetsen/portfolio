@@ -6,7 +6,7 @@ const contactInfo = {
   name: 'Sennet Senadheera',
   title: 'Computer Science Major | Aspiring Software Engineer',
   email: 'sennetsenadheera@gmail.com',
-  phone: '(123) 456-7890',
+  phone: '(848) 244-0513',
   github: 'github.com/sennetsen',
   githubUrl: 'https://github.com/sennetsen',
   linkedin: 'linkedin.com/in/sennet',
