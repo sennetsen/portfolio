@@ -1,5 +1,5 @@
 import { NavLink, Link } from 'react-router-dom'
-import { FiGithub, FiLinkedin, FiTerminal } from 'react-icons/fi'
+import { FiGithub, FiLinkedin } from 'react-icons/fi'
 import './Navbar.css'
 
 export default function Navbar() {
@@ -8,8 +8,9 @@ export default function Navbar() {
       <div className="navbar-top">
         <div className="navbar-top-inner">
           <Link to="/" className="navbar-brand">
-            <span className="navbar-name">Sennet Senadheera</span>
-            <FiTerminal className="navbar-terminal-icon" />
+            <span className="navbar-prompt">$</span>
+            <span className="navbar-name">sennet senadheera</span>
+            <span className="navbar-cursor" aria-hidden="true">|</span>
           </Link>
           <div className="navbar-actions">
             <a
@@ -62,12 +63,6 @@ export default function Navbar() {
             className={({ isActive }) => `nav-tab ${isActive ? 'active' : ''}`}
           >
             Resume
-          </NavLink>
-          <NavLink
-            to="/contact"
-            className={({ isActive }) => `nav-tab ${isActive ? 'active' : ''}`}
-          >
-            Contact
           </NavLink>
         </div>
       </nav>

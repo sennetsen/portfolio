@@ -1,7 +1,9 @@
 .footer {
   text-align: center;
-  padding: 20px;
-  background-color: var(--color-dark);
-  color: var(--color-gray-light);
-  font-size: 0.85rem;
+  padding: 28px 20px;
+  background: linear-gradient(135deg, #1a1814 0%, #2b2520 100%);
+  color: rgba(245, 240, 232, 0.7);
+  font-size: 0.82rem;
+  letter-spacing: 0.3px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
 }

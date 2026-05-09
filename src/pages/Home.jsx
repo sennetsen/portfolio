@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import { FiCode, FiTrendingUp, FiLayers, FiAward } from 'react-icons/fi'
+import { motion } from 'framer-motion'
+import Typewriter from 'typewriter-effect'
 import './Home.css'
 
 const highlights = [
@@ -34,21 +36,79 @@ export default function Home() {
     <div className="home">
       <section className="hero">
         <div className="hero-inner">
-          <h1>Welcome to my Portfolio!</h1>
-          <p className="hero-subtitle">Entrepreneur &amp; Engineer</p>
+          <motion.span
+            className="hero-eyebrow"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+          >
+            Cornell CS '26 · New York / Ithaca
+          </motion.span>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.1, ease: 'easeOut' }}
+          >
+            Welcome to my <span className="hero-accent">Portfolio</span>
+          </motion.h1>
+          <motion.div
+            className="hero-typewriter"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <Typewriter
+              options={{
+                strings: [
+                  'Software Engineer.',
+                  'Entrepreneur.',
+                  'Builder of AI-powered products.',
+                  'Co-founder of Prysm Creative Inc.',
+                ],
+                autoStart: true,
+                loop: true,
+                deleteSpeed: 30,
+                delay: 60,
+              }}
+            />
+          </motion.div>
+          <motion.p
+            className="hero-subtitle"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.6, ease: 'easeOut' }}
+          >
+            Software engineer, entrepreneur, and Cornell senior building products at the intersection of AI, full-stack systems, and creator-economy tools.
+          </motion.p>
         </div>
       </section>
 
       <section className="highlights">
-        <div className="highlights-grid">
+        <motion.div
+          className="highlights-grid"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.12 } },
+          }}
+        >
           {highlights.map((item, i) => (
-            <div className="highlight-card" key={i}>
+            <motion.div
+              className="highlight-card"
+              key={i}
+              variants={{
+                hidden: { opacity: 0, y: 28 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
+              }}
+            >
               <div className="highlight-icon">{item.icon}</div>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
       <div className="home-cta">

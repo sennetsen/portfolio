@@ -1,6 +1,15 @@
+import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FiExternalLink, FiGithub } from 'react-icons/fi'
+import { FiExternalLink, FiGithub, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { EffectCoverflow, Navigation, Pagination, Keyboard, Mousewheel, A11y } from 'swiper/modules'
+import { motion } from 'framer-motion'
 import SectionTitle from '../components/SectionTitle'
+
+import 'swiper/css'
+import 'swiper/css/effect-coverflow'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 import './Projects.css'
 
 const projects = [
@@ -52,66 +61,161 @@ const projects = [
 ]
 
 export default function Projects() {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const prevRef = useRef(null)
+  const nextRef = useRef(null)
+  const paginationRef = useRef(null)
+
   return (
     <div className="projects">
       <div className="projects-inner">
         <SectionTitle>My Projects</SectionTitle>
 
-        <div className="projects-grid">
-          {projects.map((project, i) => (
-            <div className="project-card" key={i}>
-              <h3 className="project-title">{project.title}</h3>
-              {project.image ? (
-                <img src={project.image} alt={project.title} className="project-image" />
-              ) : (
-                <div className="project-image-placeholder">
-                  <span>Project Image</span>
-                </div>
-              )}
-              {project.tags && (
-                <div className="project-tags">
-                  {project.tags.map((tag) => (
-                    <span className="project-tag" key={tag}>{tag}</span>
-                  ))}
-                </div>
-              )}
-              <p className="project-description">{project.description}</p>
-              {(project.liveUrl || project.repoUrl) && (
-                <div className="project-links">
-                  {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="project-link-btn project-link-primary"
-                    >
-                      <FiExternalLink /> View Live
-                    </a>
-                  )}
-                  {project.repoUrl && (
-                    <a
-                      href={project.repoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="project-link-btn project-link-secondary"
-                    >
-                      <FiGithub /> View Repo
-                    </a>
-                  )}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+        <motion.div
+          className="projects-carousel"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
+          <button
+            ref={prevRef}
+            type="button"
+            className="carousel-btn carousel-btn-prev"
+            aria-label="Previous project"
+          >
+            <FiChevronLeft />
+          </button>
+          <button
+            ref={nextRef}
+            type="button"
+            className="carousel-btn carousel-btn-next"
+            aria-label="Next project"
+          >
+            <FiChevronRight />
+          </button>
 
-        <div className="projects-cta">
+          <Swiper
+            modules={[EffectCoverflow, Navigation, Pagination, Keyboard, Mousewheel, A11y]}
+            effect="coverflow"
+            grabCursor
+            centeredSlides
+            loop
+            slideToClickedSlide
+            keyboard={{ enabled: true }}
+            mousewheel={{ forceToAxis: true, sensitivity: 1, releaseOnEdges: true }}
+            slidesPerView="auto"
+            spaceBetween={0}
+            coverflowEffect={{
+              rotate: 30,
+              stretch: 0,
+              depth: 160,
+              modifier: 1,
+              slideShadows: false,
+            }}
+            a11y={{
+              prevSlideMessage: 'Previous project',
+              nextSlideMessage: 'Next project',
+              paginationBulletMessage: 'Go to project {{index}}',
+            }}
+            onBeforeInit={(swiper) => {
+              swiper.params.navigation.prevEl = prevRef.current
+              swiper.params.navigation.nextEl = nextRef.current
+              swiper.params.pagination.el = paginationRef.current
+            }}
+            navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
+            pagination={{
+              el: paginationRef.current,
+              clickable: true,
+              bulletClass: 'carousel-dot',
+              bulletActiveClass: 'active',
+              bulletElement: 'button',
+            }}
+            onSlideChange={(s) => setActiveIndex(s.realIndex)}
+            className="projects-swiper"
+          >
+            {projects.map((project, i) => (
+              <SwiperSlide key={i} className="project-slide">
+                <div className="project-card">
+                  <h3 className="project-title">{project.title}</h3>
+                  {project.image ? (
+                    <img src={project.image} alt={project.title} className="project-image" />
+                  ) : (
+                    <div className="project-image-placeholder">
+                      <span>Project Image</span>
+                    </div>
+                  )}
+                  {project.tags && (
+                    <div className="project-tags">
+                      {project.tags.map((tag) => (
+                        <span className="project-tag" key={tag}>{tag}</span>
+                      ))}
+                    </div>
+                  )}
+                  <p className="project-description">{project.description}</p>
+                  {(project.liveUrl || project.repoUrl) && (
+                    <div className="project-links">
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="project-link-btn project-link-primary"
+                        >
+                          <FiExternalLink /> View Live
+                        </a>
+                      )}
+                      {project.repoUrl && (
+                        <a
+                          href={project.repoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="project-link-btn project-link-secondary"
+                        >
+                          <FiGithub /> View Repo
+                        </a>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </motion.div>
+
+        <motion.div
+          ref={paginationRef}
+          className="carousel-dots"
+          role="tablist"
+          aria-label="Project navigation"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        ></motion.div>
+
+        <motion.div
+          className="carousel-counter"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.35 }}
+        >
+          {String(activeIndex + 1).padStart(2, '0')}
+          <span className="carousel-counter-divider">/</span>
+          {String(projects.length).padStart(2, '0')}
+        </motion.div>
+
+        <motion.div
+          className="projects-cta"
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4, ease: 'easeOut' }}
+        >
           <Link to="/about" className="btn btn-primary">
             Explore More
           </Link>
           <Link to="/contact" className="btn btn-secondary">
-            Contact Me
+            Connect With Me
           </Link>
-        </div>
+        </motion.div>
       </div>
     </div>
   )
